@@ -22,9 +22,13 @@ function setQuestion() {
 
 setQuestion();
 
+function judge() {
+  return answer.text.value == kana[n] || answer.text.value == kanji[n];
+}
+
 answer.addEventListener("submit", (e) => {
   e.preventDefault();
-  if (answer.text.value == kana[n] || answer.text.value == kanji[n]) {
+  if (judge()) {
     setQuestion();
     giveCorrectClass(question, true);
   } else {
